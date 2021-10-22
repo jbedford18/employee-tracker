@@ -1,8 +1,9 @@
 const express = require('express');
 const db = require('./db/connection');
-
+const mysql = require('mysql2');
 const inquirer = require ('inquirer');
 const cTable = require("console.table");
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -17,7 +18,7 @@ app.use(express.json());
 const promptUser = () => {
     inquirer.prompt([
         {
-          name: 'menu',
+          name: 'choices',
           type: 'list',
           message: 'Select:',
           choices: [
@@ -55,6 +56,7 @@ const promptUser = () => {
           }
 
       if (choices === 'Exit') {
+        console.log("Thank you, come again!")
         connection.end();
     }
 });
@@ -64,7 +66,10 @@ const promptUser = () => {
 
 //DEPT
 const viewDepartments =() => {
-    const sql =`SELECT department.id AS id, department.title As department`;
+    const sql =`SELECT department.id AS id, department.name 
+      AS department 
+      FROM department`;
+
     db.query(sql, (err, rows) => {
         if (err) throw err;
         console.table(rows);
@@ -72,6 +77,29 @@ const viewDepartments =() => {
       })
 }
 
+
+
+//roles
+viewRoles = () => {
+    console.log('Showing roles.')
+    const sql = `SELECT roles.id, roles.title, department.name AS department
+    FROM roles
+    INNER JOIN department ON roles.department_id = department.id`;
+    
+                  db.query(sql, (err, rows) => {
+                    if (err) throw err;
+                    console.table(rows);
+                    promptUser();
+                  })
+  }
+  
+
+  //View the employees
+viewEmployees = () => {
+  console.log('Displaying Employees')
+  const sql = ''
+}
+  
 
 
 
