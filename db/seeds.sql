@@ -10,12 +10,14 @@ VALUES
     ('Accountant', 75000, 2),
     ('Lawyer', 95000, 1),
     ('Legal Manager', 99000,1),
-    ('Sales Agent', 35000, 3);
+    ('Sales Agent', 35000, 3),
+    ('Finance Assist', 80000, 2);
 
-INSERT INTO employee (first_name, last_name, role_id, mangager_id)
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES 
-    ('Money','Mac',1, null),
-    ('Stingey', 'Steve',2, null),
-    ('Larry', 'Law', 3, 4),
+    ('Money','Mac', 1, null),
+    ('Stingey', 'Steve', 2, null),
+    ('Larry', 'Law', 3, null),
     ('Big', 'Tom', 4, null),
-    ('Chad', 'Bucks', 5, 1);
+    ('Bob', 'Smith', 6, null),
+    ('Chad', 'Bucks', 5, null);
