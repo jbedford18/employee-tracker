@@ -11,7 +11,9 @@ This application requires mysql2, Inquirer, Node.js and console.table
 -Node.js
 -Inquirer 
 
-## Youtube link
+## Video link
+
+https://watch.screencastify.com/v/QsUrYckmo4dfsG1u0rO8
 
 ## Screenshot
 ![alt text](assets/images/SQL-TRACKER.PNG)
